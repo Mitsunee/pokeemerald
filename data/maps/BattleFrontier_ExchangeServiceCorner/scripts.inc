@@ -19,6 +19,7 @@ BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize::
 	goto_if_eq VAR_TEMP_2, EXCHANGE_CORNER_DECOR1_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseDecor1
 	goto_if_eq VAR_TEMP_2, EXCHANGE_CORNER_DECOR2_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseDecor2
 	goto_if_eq VAR_TEMP_2, EXCHANGE_CORNER_VITAMIN_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin
+	goto_if_eq VAR_TEMP_2, EXCHANGE_CORNER_EVO_ITEM_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem
 	goto BattleFrontier_ExchangeServiceCorner_EventScript_ChooseHoldItem
 	end
 
@@ -57,6 +58,7 @@ BattleFrontier_ExchangeServiceCorner_EventScript_TryGiveItem::
 	playse SE_SHOP
 	msgbox BattleFrontier_ExchangeServiceCorner_Text_HereIsYourPrize, MSGBOX_DEFAULT
 	goto_if_eq VAR_TEMP_2, EXCHANGE_CORNER_VITAMIN_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseVitamin
+	goto_if_eq VAR_TEMP_2, EXCHANGE_CORNER_EVO_ITEM_CLERK, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem
 	goto BattleFrontier_ExchangeServiceCorner_EventScript_ChooseHoldItem
 	end
 
@@ -408,6 +410,87 @@ BattleFrontier_ExchangeServiceCorner_EventScript_ScopeLens::
 	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
 	end
 
+BattleFrontier_ExchangeServiceCorner_EventScript_EvoItemClerk::
+	lock
+	faceplayer
+	setvar VAR_TEMP_2, EXCHANGE_CORNER_EVO_ITEM_CLERK
+	call BattleFrontier_ExchangeServiceCorner_EventScript_ClerkWelcome
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem::
+	setvar VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_EVO_ITEM_VENDOR
+	special ShowFrontierExchangeCornerItemIconWindow
+	special ShowScrollableMultichoice
+	special CloseFrontierExchangeCornerItemIconWindow
+	switch VAR_RESULT
+	case 0, BattleFrontier_ExchangeServiceCorner_EventScript_FireStone
+	case 1, BattleFrontier_ExchangeServiceCorner_EventScript_ThunderStone
+	case 2, BattleFrontier_ExchangeServiceCorner_EventScript_WaterStone
+	case 3, BattleFrontier_ExchangeServiceCorner_EventScript_LeafStone
+	case 4, BattleFrontier_ExchangeServiceCorner_EventScript_SunStone
+	case 5, BattleFrontier_ExchangeServiceCorner_EventScript_MoonStone
+	case 6, BattleFrontier_ExchangeServiceCorner_EventScript_LinkCable
+	case 7, BattleFrontier_ExchangeServiceCorner_EventScript_ClerkGoodbye
+	case MULTI_B_PRESSED, BattleFrontier_ExchangeServiceCorner_EventScript_ClerkGoodbye
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_LinkCable::
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmLinkCable, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem
+	setvar VAR_0x8008, 64
+	setvar VAR_0x8009, ITEM_LINK_CABLE
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_FireStone::
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmFireStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem
+	setvar VAR_0x8008, 48
+	setvar VAR_0x8009, ITEM_FIRE_STONE
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_ThunderStone::
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmThunderStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem
+	setvar VAR_0x8008, 48
+	setvar VAR_0x8009, ITEM_THUNDER_STONE
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_WaterStone::
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmWaterStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem
+	setvar VAR_0x8008, 48
+	setvar VAR_0x8009, ITEM_WATER_STONE
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_LeafStone::
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmLeafStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem
+	setvar VAR_0x8008, 48
+	setvar VAR_0x8009, ITEM_LEAF_STONE
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_SunStone::
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmSunStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem
+	setvar VAR_0x8008, 64
+	setvar VAR_0x8009, ITEM_SUN_STONE
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
+	end
+
+BattleFrontier_ExchangeServiceCorner_EventScript_MoonStone::
+	msgbox BattleFrontier_ExchangeServiceCorner_Text_ConfirmMoonStone, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, BattleFrontier_ExchangeServiceCorner_EventScript_ChooseEvoItem
+	setvar VAR_0x8008, 64
+	setvar VAR_0x8009, ITEM_MOON_STONE
+	goto BattleFrontier_ExchangeServiceCorner_EventScript_TryPurchasePrize
+	end
+
 BattleFrontier_ExchangeServiceCorner_EventScript_Man::
 	msgbox BattleFrontier_ExchangeServiceCorner_Text_GoGetYourOwnDoll, MSGBOX_NPC
 	end
@@ -559,6 +642,34 @@ BattleFrontier_ExchangeServiceCorner_Text_ConfirmScopeLens:
 
 BattleFrontier_ExchangeServiceCorner_Text_ConfirmLeftovers:
 	.string "You've chosen the LEFTOVERS.\n"
+	.string "Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmLinkCable::
+	.string "You've chosen the LINK CABLE.\n"
+	.string "Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmFireStone::
+	.string "You've chosen the FIRE STONE.\n"
+	.string "Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmThunderStone::
+	.string "You've chosen the THUNDER STONE.\n"
+	.string "Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmWaterStone::
+	.string "You've chosen the WATER STONE.\n"
+	.string "Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmLeafStone::
+	.string "You've chosen the LEAF STONE.\n"
+	.string "Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmSunStone::
+	.string "You've chosen the SUN STONE.\n"
+	.string "Is that correct?$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ConfirmMoonStone::
+	.string "You've chosen the SUN STONE.\n"
 	.string "Is that correct?$"
 
 BattleFrontier_ExchangeServiceCorner_Text_WellSendItToPC:
@@ -719,3 +830,31 @@ BattleFrontier_ExchangeServiceCorner_Text_FocusBandDesc::
 BattleFrontier_ExchangeServiceCorner_Text_ScopeLensDesc::
 	.string "A hold item that raises the\n"
 	.string "critical-hit rate.$"
+
+BattleFrontier_ExchangeServiceCorner_Text_LinkCableDesc::
+	.string "Makes certain species of\n"
+	.string "POKéMON evolve.$"
+
+BattleFrontier_ExchangeServiceCorner_Text_FireStoneDesc::
+	.string "Makes certain species of\n"
+	.string "POKéMON evolve.$"
+
+BattleFrontier_ExchangeServiceCorner_Text_ThunderStoneDesc::
+	.string "Makes certain species of\n"
+	.string "POKéMON evolve.$"
+
+BattleFrontier_ExchangeServiceCorner_Text_WaterStoneDesc::
+	.string "Makes certain species of\n"
+	.string "POKéMON evolve.$"
+
+BattleFrontier_ExchangeServiceCorner_Text_LeafStoneDesc::
+	.string "Makes certain species of\n"
+	.string "POKéMON evolve.$"
+
+BattleFrontier_ExchangeServiceCorner_Text_SunStoneDesc::
+	.string "Makes certain species of\n"
+	.string "POKéMON evolve.$"
+
+BattleFrontier_ExchangeServiceCorner_Text_MoonStoneDesc::
+	.string "Makes certain species of\n"
+	.string "POKéMON evolve.$"

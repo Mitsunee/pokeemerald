@@ -48,6 +48,18 @@ static const u16 sFrontierExchangeCorner_HoldItems[] =
     ITEM_LIST_END
 };
 
+static const u16 sFrontierExchangeCorner_EvoItems[] =
+{
+    ITEM_FIRE_STONE,
+    ITEM_THUNDER_STONE,
+    ITEM_WATER_STONE,
+    ITEM_LEAF_STONE,
+    ITEM_SUN_STONE,
+    ITEM_MOON_STONE,
+    ITEM_LINK_CABLE,
+    ITEM_LIST_END
+};
+
 static const u8 *const sFrontierExchangeCorner_Decor1Descriptions[] =
 {
     BattleFrontier_ExchangeServiceCorner_Text_KissPosterDesc,
@@ -95,5 +107,17 @@ static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions[] =
     BattleFrontier_ExchangeServiceCorner_Text_KingsRockDesc,
     BattleFrontier_ExchangeServiceCorner_Text_FocusBandDesc,
     BattleFrontier_ExchangeServiceCorner_Text_ScopeLensDesc,
+    gText_Exit
+};
+
+static const u8 *const sFrontierExchangeCorner_EvoItemsDescriptions[] =
+{
+    BattleFrontier_ExchangeServiceCorner_Text_FireStoneDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_ThunderStoneDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_WaterStoneDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_LeafStoneDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_SunStoneDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_MoonStoneDesc,
+    BattleFrontier_ExchangeServiceCorner_Text_LinkCableDesc,
     gText_Exit
 };

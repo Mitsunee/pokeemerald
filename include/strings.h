@@ -701,6 +701,14 @@ extern const u8 gText_KingsRock64BP[];
 extern const u8 gText_FocusBand64BP[];
 extern const u8 gText_ScopeLens64BP[];
 
+extern const u8 gText_FireStone48BP[];
+extern const u8 gText_ThunderStone48BP[];
+extern const u8 gText_WaterStone48BP[];
+extern const u8 gText_LeafStone48BP[];
+extern const u8 gText_SunStone64BP[];
+extern const u8 gText_MoonStone64BP[];
+extern const u8 gText_LinkCable64BP[];
+
 extern const u8 gText_EnergyPowder50[];
 extern const u8 gText_EnergyRoot80[];
 extern const u8 gText_HealPowder50[];
@@ -866,6 +874,15 @@ extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ChoiceBandDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_KingsRockDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_FocusBandDesc[];
 extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ScopeLensDesc[];
+
+// Custom Battle Frontier Vendor
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_FireStoneDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_ThunderStoneDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_WaterStoneDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_LeafStoneDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_SunStoneDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_MoonStoneDesc[];
+extern const u8 BattleFrontier_ExchangeServiceCorner_Text_LinkCableDesc[];
 
 // Battle Frontier Move Tutors
 extern const u8 BattleFrontier_Lounge7_Text_SoftboiledDesc[];
